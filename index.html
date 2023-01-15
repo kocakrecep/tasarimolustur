@@ -1,0 +1,411 @@
+<html>
+<title>Tasarım Oluştur</title>
+<body>
+<div class="container border"> 
+  <script type="text/javascript" src="/hesapla.js"></script>
+  <link rel="stylesheet" href="/tasarimolustur.css" />
+  <style>
+  .renkler {
+	 text-align: center;
+	 padding-top: 20px;
+}
+ .renkler > li {
+	 list-style: none;
+	 width: 40px;
+	 height: 40px;
+	 border-radius: 50%;
+	 border-bottom: 5px solid rgba(0, 0, 0, .1);
+	 display: inline-block;
+	 margin: 0 10px;
+	 cursor: pointer;
+	 transition-duration: 0.2s;
+	 box-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+}
+ .renkler > li:hover {
+	 -webkit-transform: scale(1.2);
+	 transform: scale(1.2);
+	 border-bottom: 10px solid rgba(0, 0, 0, .15);
+	 box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
+}
+ .renkler > li.active-color {
+	 -webkit-transform: scale(1.2) translateY(-10px);
+	 transform: scale(1.2) translateY(-10px);
+	 box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
+	 border-bottom: 20px solid rgba(0, 0, 0, .15);
+}
+ .renkler > li:nth-child(1) {
+	 background-color: white;
+}
+ .renkler > li:nth-child(2) {
+	 background-color: green;
+}
+ .renkler > li:nth-child(3) {
+	 background-color: blue;
+}
+ .renkler > li:nth-child(4) {
+	 background-color: pink;
+}
+ .renkler > li:nth-child(5) {
+	 background-color: yellow;
+}
+.renkler > li:nth-child(6) {
+	 background-color: red;
+}
+  .colors {
+	 text-align: center;
+	 padding-top: 20px;
+}
+
+ .colors > li {
+	 list-style: none;
+	 width: 100px;
+	 height: 100px;
+	 border-radius: 10%;
+	 border-bottom: 5px solid rgba(0, 0, 0, .1);
+	 display: inline-block;
+	 margin: 0 10px;
+	 cursor: pointer;
+	 transition-duration: 0.2s;
+	 box-shadow: 0 2px 1px rgba(0, 0, 0, .2);
+}
+ .colors > li:hover {
+	 -webkit-transform: scale(1.2);
+	 transform: scale(1.2);
+	 border-bottom: 10px solid rgba(0, 0, 0, .15);
+	 box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
+}
+ .colors > li.active-color {
+	 -webkit-transform: scale(1.2) translateY(-10px);
+	 transform: scale(1.2) translateY(-10px);
+	 box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
+	 border-bottom: 20px solid rgba(0, 0, 0, .15);
+}
+ .colors > li:nth-child(1) {
+	 background-image: url('https://mewallpaper.com/thumbnail/abstract/7173-bluish-black-wall-background-free-photo-wallpaper.jpg');
+}
+ .colors > li:nth-child(2) {
+	 background-image: url('https://media.istockphoto.com/photos/old-black-brick-wall-background-picture-id869404968?k=6&m=869404968&s=612x612&w=0&h=k1wMnui0IDVohjXLGbqD-QCBXO5x6GnwolPS2dk4b20=');
+}
+ .colors > li:nth-child(3) {
+	 background-image: url('https://i.pinimg.com/originals/00/23/c2/0023c28e5996301684e2257f938fc2d4.jpg');
+}
+ .colors > li:nth-child(4) {
+	 background-image: url('https://www.wearenugent.org/app/uploads/2016/06/black-and-white-brick-wall-background-white-brick-wall-image-decoration-picture-white-brick-wall.jpg');
+}
+ .colors > li:nth-child(5) {
+	 background-color: #bdc3c7;
+}
+ 
+  </style>   
+    <div class="row vertical-align">          
+       <img src="/img/tasarimaciklama.png" style="width:100%"/>
+    </div>
+  <div class="row">
+    <div class="col-md-6">
+        <label>Harf Yüksekliği(Yazı Fontu)</label>
+        <div class="col-sm-12 test"> <a class="btn btn-app btn-lg btn-block card" id="7cm" onclick="degistir(7)">
+          <p style="font-family: 'neon_80sregular';font-size:xx-large">7 CM LEON(NEON 80's)</p>
+          </a> </div>
+        <div class="col-sm-12 test"> <a class="btn btn-app btn-lg btn-block" id="10cm" onclick="degistir(10)">
+          <p style="font-family: 'arial_rounded_mt_boldbold';font-size:xx-large">10 CM LEON(ARIAL MD BOLD)</p>
+          </a> </div>
+        <div class="col-sm-12 test"> <a class="btn btn-app btn-lg btn-block" id="15cm" onclick="degistir(15)">
+          <p style="font-family: 'webfontregular';font-size:xx-large">15 CM LEON(HOBO)</p>
+          </a> </div>
+        <div class="col-sm-12 test"> <a class="btn btn-app btn-lg btn-block" id="30cm" onclick="degistir(30)">
+          <p style="font-family: 'Freestyle Script';font-size:xx-large">30 CM LEON(FREESTYLE SCRIPT)</p>
+          </a> </div>
+        <select name="boyut" id="boyut" hidden="hidden" class="form-control select">
+			<option value="7" selected="selected">LEON</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Yazı Rengi</label>
+          <ul class="renkler">
+            <li data-color="beyaz"></li>
+            <li data-color="yesil"></li>
+            <li data-color="mavi"></li>
+            <li data-color="pembe"></li>
+            <li data-color="sari"></li>
+            <li data-color="kirmizi" class="active-color"></li>
+          </ul>
+          <select name="renk" id="renk" hidden="hidden" class="form-control select">	
+          	<option value="kirmizi" selected="selected">LEON</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-12 mt-3">
+        <div class="form-group">
+          <label>Çizgiler</label>
+          <div class="col-sm-12 my-1">
+            <input type="checkbox" id="cizgi" class="form-check-input" name="cizgi" onchange="degis()">
+            <label class="form-check-label" for="inlineCheckbox1">Alt Çizgi Ekle</label>
+          </div>
+          <div class="col-sm-12 my-1">
+            <input type="checkbox" id="ustcizgi" class="form-check-input" name="ustcizgi" onchange="degis()">
+            <label class="form-check-label" for="inlineCheckbox1"> Üst Çizgi Ekle</label>
+          </div>
+          <div class="col-sm-12 my-1">
+            <input type="checkbox" id="ovalcizgi" class="form-check-input" name="ovalcizgi" onchange="degis()">
+            <label class="form-check-label" for="inlineCheckbox1">Oval Alt Çizgi Ekle</label>
+          </div>
+          <div class="col-sm-12 my-1">
+            <input type="checkbox" id="ustovalcizgi" class="form-check-input" name="ustovalcizgi" onchange="degis()">
+            <label class="form-check-label" for="inlineCheckbox1">Oval Üst Çizgi Ekle</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-group">
+      <label>Yazdırmak İstediğiniz Yazı</label>
+      <input name="harfSayi" id="harfSayi" multiple="multiple" cols="40"
+    rows="5" placeholder="Yazı Giriniz" style="text-transform:uppercase" type="text" class="form-control form-control-lg" />
+    </div>
+  </div>
+  <div class="col-md-12 mt-3">
+    <div class="form-group">
+      <button class="btn btn-success btn-flat btn-lg btn-block" style="font-size:x-large" onclick="fiyatHesapla(); return false;">Hesapla</button >
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Yazı Fiyatı</label>
+        <input name="fiyat" id="fiyat" placeholder="Fiyat" type="text" disabled="disabled" class="form-control form-control-lg" />
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Yazı Ölçüleri</label>
+        <input name="boyutGoster" id="boyutGoster" placeholder="Ölçüleri" type="text" disabled="disabled" class="form-control form-control-lg" />
+      </div>
+    </div>
+  </div>
+  <hr>
+    <!--<div class="form-group mb-3 mt-3"> 
+    	<label>Kendi Görselinizi Yükleyin(Lütfen açıklamaları okuyunuz.)</label>
+    	<input type='file' class="form-control" onchange="readURL(this);" />
+	</div>-->
+  <div class="form-group">
+    <ul class="colors">
+      <li data-color="https://mewallpaper.com/thumbnail/abstract/7173-bluish-black-wall-background-free-photo-wallpaper.jpg"></li>
+      <li data-color="https://media.istockphoto.com/photos/old-black-brick-wall-background-picture-id869404968?k=6&m=869404968&s=612x612&w=0&h=k1wMnui0IDVohjXLGbqD-QCBXO5x6GnwolPS2dk4b20="></li>
+      <li data-color="https://i.pinimg.com/originals/00/23/c2/0023c28e5996301684e2257f938fc2d4.jpg"></li>
+      <li class="active-color" data-color="https://www.wearenugent.org/app/uploads/2016/06/black-and-white-brick-wall-background-white-brick-wall-image-decoration-picture-white-brick-wall.jpg"></li>
+    </ul>
+    <div id="arkaplan" style="text-align:center;background-size: cover;
+    background-repeat: no-repeat;height:750px;background-image: url(https://www.wearenugent.org/app/uploads/2016/06/black-and-white-brick-wall-background-white-brick-wall-image-decoration-picture-white-brick-wall.jpg);">
+    	<div id="ddd" class="text-center" style="position:absolute;">
+          <p class="onizleme" id="pmavi"><a id="amavi">ÖNİZLEME</a></p>
+          <p class="onizleme" id="pbeyaz"><a id="abeyaz"></a></p>
+          <p class="onizleme" id="pkirmizi"><a id="akirmizi"></a></p>
+          <p class="onizleme" id="ppembe"><a id="apembe"></a></p>
+          <p class="onizleme" id="psari"><a id="asari"></a></p>
+          <p class="onizleme" id="pyesil"><a id="ayesil"></a></p>
+        </div>
+    </div>
+  </div>
+</div>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+<!-- JavaScript Bundle with Popper --> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script> 
+<script>
+
+function degistir(id){
+	buyukKucuk(id);
+	populate(id);
+	function populate(id) {
+	  $('#boyut').empty();
+	  $('#boyut')
+		.append("<option value='"+id+"' selected='selected'>LEON</option>")
+	}
+	if(id==7){
+		$(".test > a").removeClass("card");
+		$('#7cm').addClass("card");
+	}
+	if(id==10){
+		$(".test > a").removeClass("card");
+		$('#10cm').addClass("card");
+	}
+	if(id==15){
+		$(".test > a").removeClass("card");
+		$('#15cm').addClass("card");
+	}
+	if(id==30){
+		$(".test > a").removeClass("card");
+		$('#30cm').addClass("card");
+	}
+}
+
+function clearselect(){
+	//document.getElementById("boyut").selectedIndex = -1;
+	$('#boyut > option[selected="selected"]').removeAttr('selected');
+}
+function clearselectrenk(){
+	//document.getElementById("boyut").selectedIndex = -1;
+	$('#renk > option[selected="selected"]').removeAttr('selected');
+}
+function renkleri(id) {
+  $('#renk').empty();
+  $('#renk')
+	.append("<option value='"+id+"' selected='selected'>LEON</option>")
+}
+$(document).ready(function(){
+
+
+
+	 // Variables
+  var colorButton = $(".colors li");
+  
+  colorButton.on("click", function(){
+    
+    // Remove class from currently active button
+    $(".colors > li").removeClass("active-color");
+    
+    // Add class active to clicked button
+    $(this).addClass("active-color");
+    
+    // Get background color of clicked
+    var newColor = $(this).attr("data-color");
+    
+    // Change background of everything with class .bg-color
+    //$("#arkaplan").css("background-image", newColor);
+    document.getElementById('arkaplan').style.backgroundImage='url('+newColor+')';
+    // Change color of everything with class .text-color
+    $(".text-color").css("color", newColor);
+  });
+  
+  var colorButton = $(".renkler li");
+
+  colorButton.on("click", function(){
+    
+    // Remove class from currently active button
+    $(".renkler > li").removeClass("active-color");
+    
+    // Add class active to clicked button
+    $(this).addClass("active-color");
+    
+    // Get background color of clicked
+    var newColor = $(this).attr("data-color");
+    
+	if(newColor=="beyaz"){
+		renkleri("beyaz");
+	}
+	if(newColor=="yesil"){
+		renkleri("yesil");
+	}
+	if(newColor=="mavi"){
+		renkleri("mavi");
+	}
+	if(newColor=="pembe"){
+		renkleri("pembe");
+	}
+	if(newColor=="sari"){
+		renkleri("sari");
+	}
+	if(newColor=="kirmizi"){
+		renkleri("kirmizi");
+	}
+    // Change background of everything with class .bg-color
+    //$("#arkaplan").css("background-image", newColor);
+    //document.getElementById('arkaplan').style.backgroundImage='url('+newColor+')';
+    // Change color of everything with class .text-color
+    //$(".text-color").css("color", newColor);
+  });
+});
+var mousePosition;
+var offset = [0,0];
+var div;
+var isDown = false;
+var isTouch = 'ontouchstart' in document.documentElement;
+
+if(isTouch){
+	div=document.getElementById('ddd');
+	div.addEventListener('touchstart', function(e) {
+    isDown = true;
+	var rect = e.target.getBoundingClientRect();
+    var bodyRect = document.body.getBoundingClientRect();
+    var x = e.originalEvent.changedTouches[0].pageX - (rect.left - bodyRect.left);
+    var y = e.originalEvent.changedTouches[0].pageY - (rect.top - bodyRect.top);
+    offset = [
+        x,
+        y
+    ];
+}, true);
+div.addEventListener('touchend', function() {
+    isDown = false;
+}, true);
+
+div.addEventListener('touchmove', function(event) {
+    event.preventDefault();
+    if (isDown) {
+        mousePosition = {
+    
+            x : event.targetTouches[0].clientX,
+            y : event.targetTouches[0].clientY
+    
+        };
+        div.style.left = (mousePosition.x + offset[0]) + 'px';
+        div.style.top  = (mousePosition.y + offset[1]) + 'px';
+    }
+}, true);
+
+}else{
+div=document.getElementById('ddd');
+	div.addEventListener('mousedown', function(e) {
+    isDown = true;
+    offset = [
+        div.offsetLeft - e.clientX,
+        div.offsetTop - e.clientY
+    ];
+	console.log(offset);
+}, true);
+div.addEventListener('mouseup', function() {
+    isDown = false;
+}, true);
+
+div.addEventListener('mousemove', function(event) {
+    event.preventDefault();
+    if (isDown) {
+        mousePosition = {
+    
+            x : event.clientX,
+            y : event.clientY
+    
+        };
+        div.style.left = (mousePosition.x + offset[0]) + 'px';
+        div.style.top  = (mousePosition.y + offset[1]) + 'px';
+    }
+}, true);
+}
+
+function readURL(input) {
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function (e) {
+			document.getElementById('arkaplan').style.backgroundImage='url('+e.target.result+')';
+			console.log(e.target.result);
+
+		};
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+</script>
+
+
+</body>
+</html>
